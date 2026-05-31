@@ -172,9 +172,9 @@ a{text-decoration:none;color:inherit}
           <div class="field-err" id="zip-err">Required</div>
         </div>
       </div>
-      <div class="field" id="state-wrap">
-        <label>State</label>
-        <input type="text" id="state" placeholder="NY" autocomplete="address-level1">
+      <div class="field" id="state-wrap" style="display:none">
+        <label id="state-label">State</label>
+        <input type="text" id="state" placeholder="e.g. NY" autocomplete="address-level1">
       </div>
     </div>
 
@@ -322,6 +322,11 @@ function validate() {
     {id:'city', errId:'city-err', check: v => v.trim().length > 0},
     {id:'zip', errId:'zip-err', check: v => v.trim().length > 0},
   ];
+  // State required only for US/CA
+  const country = document.getElementById('country').value;
+  if (['US','CA'].includes(country)) {
+    fields.push({id:'state', errId:null, check: v => v.trim().length > 0});
+  }
   fields.forEach(f => {
     const el = document.getElementById(f.id);
     const err = document.getElementById(f.errId);
@@ -366,6 +371,26 @@ async function submitPayment() {
     errDiv.textContent = '⚠️ Add your Stripe backend to process payments.';
   }, 1500);
 }
+
+// State/region field — show only for US and CA
+const stateConfig = {
+  US: { label: 'State', placeholder: 'e.g. NY', required: true },
+  CA: { label: 'Province', placeholder: 'e.g. ON', required: true },
+};
+document.getElementById('country').addEventListener('change', function() {
+  const wrap = document.getElementById('state-wrap');
+  const cfg = stateConfig[this.value];
+  if (cfg) {
+    document.getElementById('state-label').textContent = cfg.label;
+    document.getElementById('state').placeholder = cfg.placeholder;
+    wrap.style.display = 'block';
+  } else {
+    wrap.style.display = 'none';
+    document.getElementById('state').value = '';
+  }
+});
+// Run on load for default value
+document.getElementById('country').dispatchEvent(new Event('change'));
 
 // Clear err on input
 document.querySelectorAll('input,select').forEach(el => {
