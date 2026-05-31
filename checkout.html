@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — FootZen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#1a6b3c;--accent:#ff6b35;--border:#e5e5e5;--bg:#f7f7f5;--err:#dc2626}
+html{font-size:62.5%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#1a1a1a;font-size:1.6rem;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+.header{background:#fff;border-bottom:1px solid var(--border);padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.logo span{color:var(--accent)}
+.secure{display:flex;align-items:center;gap:.6rem;font-size:1.3rem;color:#888}
+
+/* LAYOUT */
+.checkout-wrap{max-width:960px;margin:3rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 400px;gap:2.4rem;align-items:start}
+
+/* FORM CARD */
+.card{background:#fff;border-radius:16px;border:1px solid var(--border);padding:2.4rem;margin-bottom:2rem}
+.card-title{font-size:1.6rem;font-weight:700;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+
+/* FIELDS */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.field{margin-bottom:1.4rem}
+.field label{display:block;font-size:1.3rem;font-weight:600;color:#555;margin-bottom:.5rem}
+.field input, .field select{
+  width:100%;padding:1.2rem 1.4rem;
+  border:1.5px solid var(--border);border-radius:10px;
+  font-size:1.5rem;font-family:inherit;color:#1a1a1a;
+  background:#fff;outline:none;transition:border-color .15s;
+}
+.field input:focus, .field select:focus{border-color:var(--primary)}
+.field input.err{border-color:var(--err)}
+.field-err{font-size:1.2rem;color:var(--err);margin-top:.4rem;display:none}
+
+/* STRIPE ELEMENT */
+.stripe-wrap{padding:1.2rem 1.4rem;border:1.5px solid var(--border);border-radius:10px;background:#fff;transition:border-color .15s;min-height:46px}
+.stripe-wrap.focused{border-color:var(--primary)}
+
+/* PAYMENT METHODS */
+.pay-tabs{display:flex;gap:.8rem;margin-bottom:1.6rem}
+.pay-tab{flex:1;padding:1rem;border:1.5px solid var(--border);border-radius:10px;background:#fff;cursor:pointer;text-align:center;font-size:1.3rem;font-weight:600;color:#888;transition:all .15s;font-family:inherit}
+.pay-tab.active{border-color:var(--primary);background:#f0faf4;color:var(--primary)}
+.pay-tab svg{display:block;margin:0 auto .4rem}
+
+/* SUBMIT */
+.btn-pay{
+  width:100%;background:var(--primary);color:#fff;border:none;
+  padding:1.8rem;border-radius:12px;font-size:1.8rem;font-weight:800;
+  cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.8rem;
+  font-family:inherit;position:relative;
+}
+.btn-pay:hover{background:#22893f;transform:translateY(-1px)}
+.btn-pay:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-pay .spinner{width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ORDER SUMMARY */
+.summary{background:#fff;border-radius:16px;border:1px solid var(--border);padding:2.4rem;position:sticky;top:2rem}
+.summary-title{font-size:1.6rem;font-weight:700;margin-bottom:1.6rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+.summary-product{display:flex;gap:1.4rem;margin-bottom:2rem}
+.summary-img{width:72px;height:72px;object-fit:cover;border-radius:10px;border:1px solid var(--border);flex-shrink:0}
+.summary-name{font-size:1.4rem;font-weight:600;margin-bottom:.4rem}
+.summary-meta{font-size:1.25rem;color:#888}
+.summary-lines{border-top:1px solid var(--border);padding-top:1.4rem}
+.line{display:flex;justify-content:space-between;font-size:1.4rem;margin-bottom:.8rem;color:#666}
+.line.total{font-size:1.6rem;font-weight:800;color:#1a1a1a;border-top:1px solid var(--border);padding-top:1.2rem;margin-top:.4rem}
+.line.free{color:var(--primary);font-weight:600}
+.trust-list{margin-top:1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.trust-item{display:flex;align-items:center;gap:.8rem;font-size:1.3rem;color:#888}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:.6rem;font-size:1.3rem;color:#888;margin-bottom:2rem}
+.breadcrumb a{color:var(--primary)}
+.breadcrumb span{color:#ccc}
+
+@media(max-width:768px){
+  .checkout-wrap{grid-template-columns:1fr;margin:1rem auto}
+  .field-row{grid-template-columns:1fr}
+  .summary{position:static;order:-1}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">Foot<span>Zen</span></a>
+  <div class="secure">🔒 Secure checkout</div>
+</header>
+
+<div class="checkout-wrap">
+
+  <!-- LEFT: FORM -->
+  <div>
+    <div class="breadcrumb">
+      <a href="index.html">Cart</a>
+      <span>›</span>
+      <strong style="color:#1a1a1a">Shipping & Payment</strong>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card">
+      <div class="card-title">Contact information</div>
+      <div class="field">
+        <label>Email address</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        <div class="field-err" id="email-err">Please enter a valid email</div>
+      </div>
+      <div class="field">
+        <label>Phone (optional)</label>
+        <input type="tel" id="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+      </div>
+    </div>
+
+    <!-- SHIPPING -->
+    <div class="card">
+      <div class="card-title">Shipping address</div>
+      <div class="field-row">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" id="fname" placeholder="John" autocomplete="given-name">
+          <div class="field-err" id="fname-err">Required</div>
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" id="lname" placeholder="Smith" autocomplete="family-name">
+          <div class="field-err" id="lname-err">Required</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Country</label>
+        <select id="country" autocomplete="country">
+          <option value="">Select country…</option>
+          <option value="US" selected>🇺🇸 United States</option>
+          <option value="CA">🇨🇦 Canada</option>
+          <option value="GB">🇬🇧 United Kingdom</option>
+          <option value="DE">🇩🇪 Germany</option>
+          <option value="FR">🇫🇷 France</option>
+          <option value="NL">🇳🇱 Netherlands</option>
+          <option value="AU">🇦🇺 Australia</option>
+          <option value="IE">🇮🇪 Ireland</option>
+          <option value="ES">🇪🇸 Spain</option>
+          <option value="IT">🇮🇹 Italy</option>
+          <option value="SE">🇸🇪 Sweden</option>
+          <option value="NO">🇳🇴 Norway</option>
+          <option value="DK">🇩🇰 Denmark</option>
+          <option value="PL">🇵🇱 Poland</option>
+        </select>
+        <div class="field-err" id="country-err">Required</div>
+      </div>
+      <div class="field">
+        <label>Address</label>
+        <input type="text" id="address" placeholder="123 Main Street, Apt 4B" autocomplete="street-address">
+        <div class="field-err" id="address-err">Required</div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>City</label>
+          <input type="text" id="city" placeholder="New York" autocomplete="address-level2">
+          <div class="field-err" id="city-err">Required</div>
+        </div>
+        <div class="field">
+          <label>ZIP / Postal code</label>
+          <input type="text" id="zip" placeholder="10001" autocomplete="postal-code">
+          <div class="field-err" id="zip-err">Required</div>
+        </div>
+      </div>
+      <div class="field" id="state-wrap">
+        <label>State</label>
+        <input type="text" id="state" placeholder="NY" autocomplete="address-level1">
+      </div>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="card">
+      <div class="card-title">Payment</div>
+
+      <div class="pay-tabs">
+        <button class="pay-tab active" onclick="selectPayTab(this,'card')" id="tab-card">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect x=".5" y=".5" width="21" height="15" rx="2.5" stroke="#1a6b3c"/><rect y="4" width="22" height="3" fill="#1a6b3c"/><rect x="3" y="10" width="5" height="2" rx="1" fill="#1a6b3c"/></svg>
+          Card
+        </button>
+        <button class="pay-tab" onclick="selectPayTab(this,'apple')" id="tab-apple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Apple Pay
+        </button>
+        <button class="pay-tab" onclick="selectPayTab(this,'google')" id="tab-google">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Pay
+        </button>
+      </div>
+
+      <!-- Card fields -->
+      <div id="card-fields">
+        <div class="field">
+          <label>Card number</label>
+          <div class="stripe-wrap" id="card-number-el"></div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Expiry date</label>
+            <div class="stripe-wrap" id="card-expiry-el"></div>
+          </div>
+          <div class="field">
+            <label>CVC</label>
+            <div class="stripe-wrap" id="card-cvc-el"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="apple-fields" style="display:none;text-align:center;padding:2rem;color:#888;font-size:1.4rem">
+        Click "Pay Now" to complete with Apple Pay
+      </div>
+      <div id="google-fields" style="display:none;text-align:center;padding:2rem;color:#888;font-size:1.4rem">
+        Click "Pay Now" to complete with Google Pay
+      </div>
+
+      <div id="pay-error" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem 1.4rem;font-size:1.35rem;color:var(--err);margin-bottom:1.4rem"></div>
+
+      <button class="btn-pay" id="pay-btn" onclick="submitPayment()">
+        <div class="spinner" id="pay-spinner"></div>
+        <span id="pay-label">🔒 Pay $29.99 — Free Shipping</span>
+      </button>
+
+      <div style="text-align:center;font-size:1.2rem;color:#bbb;margin-top:1rem">
+        By paying you agree to our <a href="#" style="color:var(--primary)">Terms</a> & <a href="#" style="color:var(--primary)">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: ORDER SUMMARY -->
+  <div class="summary">
+    <div class="summary-title">Order summary</div>
+    <div class="summary-product">
+      <img src="img/real_3.jpg" class="summary-img" alt="FootZen">
+      <div>
+        <div class="summary-name">FootZen Acupressure Slippers</div>
+        <div class="summary-meta" id="sum-meta">Size: EU 40-41 · Qty: 1</div>
+        <div style="margin-top:.6rem;font-size:1.5rem;font-weight:700">$29.99</div>
+      </div>
+    </div>
+    <div class="summary-lines">
+      <div class="line"><span>Subtotal</span><span id="sum-sub">$29.99</span></div>
+      <div class="line free"><span>🚚 Shipping</span><span>FREE</span></div>
+      <div class="line"><span>Estimated delivery</span><span>5–7 days</span></div>
+      <div class="line total"><span>Total</span><span id="sum-total">$29.99</span></div>
+    </div>
+    <div class="trust-list">
+      <div class="trust-item">🔒 256-bit SSL encryption</div>
+      <div class="trust-item">↩️ 30-day money-back guarantee</div>
+      <div class="trust-item">🚚 Free shipping on this order</div>
+      <div class="trust-item">⭐ 2,847 verified reviews</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Read params from URL
+const params = new URLSearchParams(location.search);
+const size = params.get('size') || 'EU 40-41';
+const qty = parseInt(params.get('qty') || '1');
+const price = (29.99 * qty).toFixed(2);
+
+document.getElementById('sum-meta').textContent = `Size: ${size} · Qty: ${qty}`;
+document.getElementById('sum-sub').textContent = `$${price}`;
+document.getElementById('sum-total').textContent = `$${price}`;
+document.getElementById('pay-label').textContent = `🔒 Pay $${price} — Free Shipping`;
+
+// Stripe init
+// TODO: replace with your publishable key
+const stripe = Stripe('pk_test_YOUR_STRIPE_KEY');
+const elements = stripe.elements();
+
+const style = {
+  base: { fontSize: '15px', color: '#1a1a1a', fontFamily: 'Inter, sans-serif', '::placeholder': { color: '#aaa' } },
+  invalid: { color: '#dc2626' }
+};
+
+const cardNumber = elements.create('cardNumber', { style });
+const cardExpiry = elements.create('cardExpiry', { style });
+const cardCvc   = elements.create('cardCvc', { style });
+
+cardNumber.mount('#card-number-el');
+cardExpiry.mount('#card-expiry-el');
+cardCvc.mount('#card-cvc-el');
+
+// Focus border
+[{el: cardNumber, wrap: 'card-number-el'},
+ {el: cardExpiry, wrap: 'card-expiry-el'},
+ {el: cardCvc, wrap: 'card-cvc-el'}].forEach(({el, wrap}) => {
+  el.on('focus', () => document.getElementById(wrap).classList.add('focused'));
+  el.on('blur',  () => document.getElementById(wrap).classList.remove('focused'));
+});
+
+// Pay tabs
+let activeTab = 'card';
+function selectPayTab(btn, tab) {
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  activeTab = tab;
+  ['card','apple','google'].forEach(t => {
+    document.getElementById(t+'-fields').style.display = t === tab ? 'block' : 'none';
+  });
+}
+
+// Validate
+function validate() {
+  let ok = true;
+  const fields = [
+    {id:'email', errId:'email-err', check: v => /\S+@\S+\.\S+/.test(v)},
+    {id:'fname', errId:'fname-err', check: v => v.trim().length > 0},
+    {id:'lname', errId:'lname-err', check: v => v.trim().length > 0},
+    {id:'country', errId:'country-err', check: v => v.length > 0},
+    {id:'address', errId:'address-err', check: v => v.trim().length > 0},
+    {id:'city', errId:'city-err', check: v => v.trim().length > 0},
+    {id:'zip', errId:'zip-err', check: v => v.trim().length > 0},
+  ];
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const err = document.getElementById(f.errId);
+    if (!f.check(el.value)) {
+      el.classList.add('err');
+      if (err) err.style.display = 'block';
+      ok = false;
+    } else {
+      el.classList.remove('err');
+      if (err) err.style.display = 'none';
+    }
+  });
+  return ok;
+}
+
+// Submit
+async function submitPayment() {
+  if (!validate()) {
+    document.querySelector('.field.err input, .field.err select')?.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  const btn = document.getElementById('pay-btn');
+  const spinner = document.getElementById('pay-spinner');
+  const label = document.getElementById('pay-label');
+  const errDiv = document.getElementById('pay-error');
+
+  btn.disabled = true;
+  spinner.style.display = 'block';
+  label.style.opacity = '0';
+  errDiv.style.display = 'none';
+
+  // TODO: Create PaymentIntent on your backend and confirm here
+  // const {error} = await stripe.confirmCardPayment(clientSecret, { payment_method: { card: cardNumber } });
+  // if (error) { ... } else { location.href = '/success.html' }
+
+  // DEMO: simulate
+  setTimeout(() => {
+    btn.disabled = false;
+    spinner.style.display = 'none';
+    label.style.opacity = '1';
+    errDiv.style.display = 'block';
+    errDiv.textContent = '⚠️ Add your Stripe backend to process payments.';
+  }, 1500);
+}
+
+// Clear err on input
+document.querySelectorAll('input,select').forEach(el => {
+  el.addEventListener('input', () => {
+    el.classList.remove('err');
+    const err = document.getElementById(el.id + '-err');
+    if (err) err.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
