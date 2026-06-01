@@ -3,599 +3,636 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FootZen — Acupressure Relief Slippers</title>
-<meta name="description" content="Thousands of people use FootZen slippers to relieve foot pain, plantar fasciitis and tired legs. Try risk-free for 30 days.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>FootZen™ — As Seen on TikTok | Acupressure Relief Slippers</title>
+<meta name="description" content="The acupressure slippers with 28M+ TikTok views. Relieve foot pain in 20 minutes. Free shipping. 30-day guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#1a6b3c;
-  --primary-light:#22893f;
-  --accent:#ff6b35;
-  --text:#1a1a1a;
-  --muted:#666;
-  --border:#e5e5e5;
-  --bg:#f9f9f7;
+  --g:#1B5E35;
+  --gm:#237A43;
+  --gl:#EBF5EE;
+  --o:#FF5722;
+  --bk:#0D0D0D;
+  --tx:#1A1A1A;
+  --mu:#6B7280;
+  --bd:#E4E0D8;
+  --cr:#FAF9F6;
+  --wh:#FFFFFF;
 }
 html{font-size:62.5%;scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;font-size:1.6rem;line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+body{font-family:'Inter',sans-serif;color:var(--tx);background:var(--wh);overflow-x:hidden;font-size:1.6rem;line-height:1.6}
 img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* ANNOUNCEMENT */
+.anbar{background:var(--bk);color:#fff;padding:.9rem;overflow:hidden;white-space:nowrap}
+.anbar-track{display:inline-flex;gap:6rem;animation:tick 22s linear infinite}
+.anbar-track span{font-size:1.3rem;font-weight:600;letter-spacing:.02em;flex-shrink:0}
+.anbar-track span em{font-style:normal;color:#FFD166}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* HEADER */
-.header{background:#fff;border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.logo{font-size:2rem;font-weight:900;color:var(--primary);letter-spacing:-.03em}
-.logo span{color:var(--accent)}
-.header-trust{display:flex;align-items:center;gap:1.6rem;font-size:1.2rem;color:var(--muted)}
-.header-trust .stars{color:#f5a623;font-size:1.4rem}
-.header-badge{background:#f0faf4;border:1px solid #c3e6d0;border-radius:20px;padding:.3rem 1rem;font-size:1.2rem;color:var(--primary);font-weight:600}
-
-/* ANNOUNCEMENT BAR */
-.anbar{background:var(--primary);color:#fff;text-align:center;padding:.8rem;font-size:1.3rem;font-weight:600;letter-spacing:.02em}
-.anbar span{color:#ffd700}
+.hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:1.4rem 4rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:2.4rem;font-weight:900;color:var(--g);letter-spacing:-.04em}
+.logo em{font-style:normal;color:var(--o)}
+.hd-trust{display:flex;align-items:center;gap:2rem;font-size:1.3rem}
+.hd-stars{display:flex;align-items:center;gap:.5rem;color:#F5A623;font-size:1.5rem;font-weight:700}
+.hd-stars span{color:var(--mu);font-size:1.3rem;font-weight:400}
+.hd-badge{background:var(--gl);border:1px solid #C3E6D0;color:var(--g);font-weight:700;font-size:1.2rem;padding:.4rem 1.2rem;border-radius:20px}
 
 /* HERO */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;background:#fff}
-.hero-media{background:#f0faf4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero-img-wrap{width:100%;height:100%;min-height:500px;background:linear-gradient(135deg,#e8f5ed,#d4eddc);display:flex;align-items:center;justify-content:center;position:relative}
-.hero-img-placeholder{width:380px;height:380px;background:linear-gradient(135deg,#22893f22,#1a6b3c11);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12rem}
-.badge-viral{position:absolute;top:2rem;left:2rem;background:var(--accent);color:#fff;padding:.5rem 1.4rem;border-radius:20px;font-size:1.2rem;font-weight:700;letter-spacing:.04em}
+.hero{display:grid;grid-template-columns:55% 45%;min-height:calc(100vh - 108px)}
 
-.hero-content{padding:4rem 4rem 4rem 3rem;display:flex;flex-direction:column;justify-content:center}
-.eyebrow{font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:1.2rem}
-.hero h1{font-size:4rem;font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.6rem}
-.hero h1 em{font-style:normal;color:var(--primary)}
-.hero-sub{font-size:1.6rem;color:var(--muted);line-height:1.7;margin-bottom:2.4rem}
+/* Gallery */
+.gal{position:relative;background:#F0EDE7;overflow:hidden;min-height:600px}
+.gal-main{width:100%;height:100%;object-fit:cover;object-position:center}
+.gal-badge{position:absolute;top:2.4rem;left:2.4rem;background:var(--o);color:#fff;padding:.7rem 1.6rem;border-radius:40px;font-size:1.3rem;font-weight:800;letter-spacing:.04em;box-shadow:0 4px 20px rgba(255,87,34,.4);display:flex;align-items:center;gap:.5rem}
+.gal-thumbs{position:absolute;bottom:2.4rem;left:2.4rem;display:flex;gap:.8rem}
+.thumb{width:70px;height:70px;border-radius:10px;object-fit:cover;cursor:pointer;border:3px solid transparent;transition:border-color .15s;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.thumb.on{border-color:var(--g)}
+.thumb:hover{border-color:var(--gm)}
+.pill{position:absolute;bottom:9rem;right:2.4rem;background:#fff;border-radius:16px;padding:1.2rem 1.6rem;box-shadow:0 8px 32px rgba(0,0,0,.14);max-width:230px;display:flex;gap:1rem;align-items:flex-start}
+.pill-av{width:40px;height:40px;border-radius:50%;background:var(--g);color:#fff;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pill-tx{font-size:1.25rem;line-height:1.5;color:var(--tx)}
+.pill-tx b{display:block;font-size:1.1rem;font-weight:600;color:var(--mu);margin-top:.3rem}
 
-.stars-row{display:flex;align-items:center;gap:.8rem;margin-bottom:2rem}
-.stars-big{color:#f5a623;font-size:2rem;letter-spacing:.1em}
-.stars-text{font-size:1.4rem;color:var(--muted)}
-.stars-text strong{color:var(--text)}
+/* Hero content */
+.hc{padding:5rem 5rem 5rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--wh)}
+.eyebrow{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--g);margin-bottom:1.6rem;display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--g);border-radius:1px;flex-shrink:0}
+.h1{font-size:5.2rem;font-weight:900;line-height:1.04;letter-spacing:-.04em;color:var(--bk);margin-bottom:1.6rem}
+.h1 em{font-style:italic;color:var(--g)}
+.sub{font-size:1.6rem;color:var(--mu);line-height:1.7;margin-bottom:2.4rem;max-width:420px}
+.stars-row{display:flex;align-items:center;gap:1rem;margin-bottom:2.8rem;padding-bottom:2.4rem;border-bottom:1.5px solid var(--bd)}
+.st{color:#F5A623;font-size:2rem;letter-spacing:.04em}
+.st-info{font-size:1.4rem;color:var(--mu)}
+.st-info strong{color:var(--bk);font-weight:700}
 
-.price-block{background:var(--bg);border:2px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:2rem}
-.price-orig{font-size:1.6rem;color:#999;text-decoration:line-through;margin-bottom:.3rem}
-.price-sale{display:flex;align-items:center;gap:1.2rem}
-.price-now{font-size:4rem;font-weight:900;color:var(--text)}
-.price-tag{background:#ff6b35;color:#fff;padding:.4rem 1rem;border-radius:8px;font-size:1.3rem;font-weight:700}
-.stock-bar{margin-top:1.2rem}
-.stock-text{font-size:1.3rem;color:var(--muted);margin-bottom:.5rem}
-.stock-track{height:8px;background:#e5e5e5;border-radius:4px;overflow:hidden}
-.stock-fill{height:100%;width:23%;background:var(--accent);border-radius:4px}
-.stock-warning{font-size:1.2rem;color:var(--accent);font-weight:600;margin-top:.5rem}
+/* Qty */
+.fl{font-size:1.3rem;font-weight:700;color:var(--bk);margin-bottom:.8rem}
+.qty-wrap{display:flex;align-items:center;gap:1.6rem;margin-bottom:2rem}
+.qty-ctrl{display:flex;align-items:center;border:1.5px solid var(--bd);border-radius:10px;overflow:hidden}
+.qb{width:40px;height:40px;background:#F5F4F0;font-size:2.2rem;color:var(--tx);display:flex;align-items:center;justify-content:center;transition:background .12s;line-height:1}
+.qb:hover{background:#EBEBEB}
+.qv{width:50px;text-align:center;font-size:1.6rem;font-weight:700;color:var(--bk)}
+.qs{font-size:1.3rem;color:var(--g);font-weight:600}
 
-.timer-block{background:#fff9f0;border:1.5px solid #fde8cc;border-radius:12px;padding:1.2rem 1.6rem;display:flex;align-items:center;gap:1.2rem;margin-bottom:2rem}
-.timer-label{font-size:1.3rem;font-weight:600;color:var(--accent)}
-.timer-digits{display:flex;gap:.6rem;align-items:center}
-.timer-unit{background:var(--accent);color:#fff;padding:.4rem .8rem;border-radius:6px;font-size:1.6rem;font-weight:800;min-width:42px;text-align:center}
-.timer-sep{font-weight:800;color:var(--accent)}
+/* Size */
+.sz-grid{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:.8rem}
+.sz-btn{padding:.9rem 1.4rem;border:1.5px solid var(--bd);border-radius:9px;background:#fff;font-size:1.25rem;font-weight:600;color:var(--tx);transition:all .15s;text-align:center;line-height:1.4}
+.sz-btn:hover{border-color:var(--g);color:var(--g)}
+.sz-btn.on{border-color:var(--g);background:var(--gl);color:var(--g)}
+.sz-btn small{display:block;font-size:1.05rem;font-weight:400;color:var(--mu)}
+.sc-btn{font-size:1.2rem;color:var(--g);font-weight:600;background:none;border:none;cursor:pointer;text-decoration:underline;padding:0;margin-bottom:1.4rem}
+.sz-chart{display:none;border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:1.4rem;font-size:1.25rem}
+.sz-chart table{width:100%;border-collapse:collapse}
+.sz-chart th{background:var(--g);color:#fff;padding:.7rem 1rem;text-align:left;font-weight:600}
+.sz-chart td{padding:.7rem 1rem;border-bottom:1px solid var(--bd)}
+.sz-chart tr:last-child td{border-bottom:none}
+.sz-chart tr:nth-child(even) td{background:var(--cr)}
 
-.btn-buy{display:block;width:100%;background:var(--primary);color:#fff;padding:1.8rem 2rem;border:none;border-radius:12px;font-size:1.8rem;font-weight:800;cursor:pointer;text-align:center;transition:all .15s;letter-spacing:.01em;margin-bottom:1.2rem}
-.btn-buy:hover{background:var(--primary-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,107,60,.3)}
-.btn-buy span{font-size:1.4rem;font-weight:500;opacity:.85;display:block;margin-top:.2rem}
-.trust-icons{display:flex;gap:1.6rem;font-size:1.25rem;color:var(--muted);flex-wrap:wrap}
-.trust-icons div{display:flex;align-items:center;gap:.5rem}
+/* Price */
+.pb{background:var(--cr);border:1.5px solid var(--bd);border-radius:16px;padding:2rem 2.4rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between}
+.pn{font-size:4rem;font-weight:900;letter-spacing:-.04em;color:var(--bk);margin-right:1rem}
+.po{font-size:1.8rem;color:#B8B5AD;text-decoration:line-through;font-weight:400}
+.ps{background:var(--o);color:#fff;padding:.4rem 1rem;border-radius:8px;font-size:1.3rem;font-weight:800}
+.pship{font-size:1.25rem;color:var(--g);font-weight:600;margin-top:.5rem}
+.pstock{font-size:1.2rem;color:var(--o);font-weight:700;margin-bottom:1.4rem;display:flex;align-items:center;gap:.4rem}
 
-/* SIZE SELECT */
-.size-block{margin-bottom:1.6rem}
-.size-label{font-size:1.4rem;font-weight:600;margin-bottom:.8rem}
-.size-opts{display:flex;gap:.8rem;flex-wrap:wrap}
-.size-opt{padding:.7rem 1.6rem;border:2px solid var(--border);border-radius:8px;font-size:1.4rem;cursor:pointer;transition:all .15s;background:#fff;font-family:inherit}
-.size-opt:hover,.size-opt.active{border-color:var(--primary);background:#f0faf4;color:var(--primary);font-weight:600}
+/* Timer */
+.tmr{display:flex;align-items:center;gap:1.2rem;background:#FFF8F5;border:1.5px solid #FFE0D0;border-radius:12px;padding:1.2rem 1.6rem;margin-bottom:1.8rem}
+.tl{font-size:1.3rem;font-weight:700;color:var(--o);white-space:nowrap}
+.tu{display:flex;gap:.5rem;align-items:center}
+.tc{background:var(--o);color:#fff;padding:.5rem .9rem;border-radius:7px;font-size:1.6rem;font-weight:900;min-width:42px;text-align:center}
+.td{font-weight:900;color:var(--o);font-size:1.6rem}
 
-/* PAIN SECTION */
-.pain-section{background:var(--bg);padding:6rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.section-label{font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:1rem;text-align:center}
-.section-title{font-size:3.6rem;font-weight:900;text-align:center;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.2rem}
-.section-sub{font-size:1.6rem;color:var(--muted);text-align:center;max-width:560px;margin:0 auto 4rem;line-height:1.7}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.pain-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.4rem;text-align:center}
-.pain-icon{font-size:3.6rem;margin-bottom:1.2rem}
-.pain-card h3{font-size:1.6rem;font-weight:700;margin-bottom:.8rem}
-.pain-card p{font-size:1.4rem;color:var(--muted);line-height:1.65}
+/* Buy button */
+.btn-buy{display:block;width:100%;background:var(--g);color:#fff;padding:2rem;border-radius:14px;font-size:1.8rem;font-weight:800;text-align:center;transition:all .2s;margin-bottom:1.2rem;letter-spacing:.01em}
+.btn-buy:hover{background:var(--gm);transform:translateY(-2px);box-shadow:0 12px 32px rgba(27,94,53,.28)}
+.btn-buy span{display:block;font-size:1.25rem;font-weight:500;opacity:.82;margin-top:.3rem}
 
-/* HOW IT WORKS */
-.how-section{padding:6rem 2rem;background:#fff}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:4rem}
-.step{text-align:center}
-.step-num{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;font-size:2rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 1.6rem}
-.step h3{font-size:1.7rem;font-weight:700;margin-bottom:.8rem}
-.step p{font-size:1.4rem;color:var(--muted);line-height:1.65}
+/* Trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.4rem}
+.ti{display:flex;align-items:center;gap:.8rem;font-size:1.2rem;color:var(--mu);background:var(--cr);border:1px solid var(--bd);border-radius:10px;padding:.9rem 1.2rem}
+.ti-ic{font-size:1.7rem}
 
-/* REVIEWS */
-.reviews-section{background:var(--bg);padding:6rem 2rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
-.review-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.4rem}
-.review-stars{color:#f5a623;font-size:1.8rem;margin-bottom:.8rem}
-.review-text{font-size:1.45rem;line-height:1.7;margin-bottom:1.2rem;color:#333}
-.reviewer{display:flex;align-items:center;gap:1rem}
-.reviewer-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#22893f,#1a6b3c);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.4rem;flex-shrink:0}
-.reviewer-name{font-weight:600;font-size:1.4rem}
-.reviewer-meta{font-size:1.2rem;color:var(--muted)}
-.verified{display:inline-flex;align-items:center;gap:.4rem;font-size:1.1rem;color:var(--primary);font-weight:600;margin-top:.4rem}
+/* MARQUEE STRIP */
+.mq{background:var(--bk);padding:1.6rem 0;overflow:hidden}
+.mq-inner{display:inline-flex;gap:5rem;animation:mq 28s linear infinite;white-space:nowrap}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:.8rem;font-size:1.4rem;color:#fff;flex-shrink:0}
+.mq-st{color:#F5A623;font-size:1.3rem}
+.mq-nm{font-weight:700}
 
-/* BEFORE/AFTER */
-.ba-section{padding:6rem 2rem;background:#fff}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:4rem}
-.ba-visual{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.ba-box{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:6rem}
-.ba-before{background:linear-gradient(135deg,#ffe8e8,#ffd0d0)}
-.ba-after{background:linear-gradient(135deg,#e8f5ed,#d4eddc)}
-.ba-label{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;padding:.3rem 1rem;border-radius:20px;font-size:1.2rem;font-weight:700;white-space:nowrap}
-.ba-content h2{font-size:3rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1.6rem;line-height:1.15}
-.ba-list{display:flex;flex-direction:column;gap:1.2rem}
-.ba-item{display:flex;align-items:flex-start;gap:1.2rem;font-size:1.5rem;line-height:1.6}
-.ba-item::before{content:'✓';color:var(--primary);font-weight:900;font-size:1.8rem;flex-shrink:0;margin-top:-.1rem}
+/* PAIN */
+.pain{padding:9rem 4rem;background:var(--wh)}
+.s-eye{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--g);text-align:center;margin-bottom:1.2rem}
+.s-h2{font-size:4rem;font-weight:900;letter-spacing:-.04em;text-align:center;line-height:1.1;margin-bottom:1.2rem;color:var(--bk)}
+.s-sub{font-size:1.6rem;color:var(--mu);text-align:center;max-width:540px;margin:0 auto 5rem;line-height:1.7}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem;max-width:1100px;margin:0 auto}
+.pc{background:var(--cr);border:1px solid var(--bd);border-radius:20px;padding:3rem 2.4rem}
+.pc-ic{font-size:4.2rem;margin-bottom:1.8rem}
+.pc h3{font-size:1.9rem;font-weight:800;margin-bottom:.8rem;letter-spacing:-.02em;color:var(--bk)}
+.pc p{font-size:1.4rem;color:var(--mu);line-height:1.7}
+
+/* HOW */
+.how{padding:9rem 4rem;background:var(--cr)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem;max-width:1000px;margin:5rem auto 0;position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:calc(16.666% + 1rem);right:calc(16.666% + 1rem);height:2px;background:linear-gradient(90deg,var(--g),var(--gm));z-index:0}
+.st-card{text-align:center;position:relative;z-index:1}
+.st-num{width:56px;height:56px;border-radius:50%;background:var(--g);color:#fff;font-size:2rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;box-shadow:0 4px 20px rgba(27,94,53,.3)}
+.st-card h3{font-size:1.9rem;font-weight:800;margin-bottom:.8rem;letter-spacing:-.02em;color:var(--bk)}
+.st-card p{font-size:1.4rem;color:var(--mu);line-height:1.7}
+
+/* FEATURES */
+.feat{padding:9rem 4rem;background:var(--wh)}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:900px;margin:5rem auto 0}
+.fi{display:flex;gap:1.8rem;align-items:flex-start;background:var(--cr);border:1px solid var(--bd);border-radius:18px;padding:2.2rem 2.6rem}
+.fi-ic{font-size:3rem;flex-shrink:0;margin-top:.2rem}
+.fi h4{font-size:1.6rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--bk)}
+.fi p{font-size:1.35rem;color:var(--mu);line-height:1.65}
+
+/* REVIEWS — dark */
+.rev{padding:9rem 4rem;background:var(--bk)}
+.rev .s-eye{color:#86EFAC}
+.rev .s-h2{color:#fff}
+.rev .s-sub{color:rgba(255,255,255,.55)}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto}
+.rc{background:#161616;border:1px solid #222;border-radius:20px;padding:2.6rem}
+.rc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem}
+.rc-st{color:#F5A623;font-size:1.9rem}
+.rc-vf{font-size:1.15rem;color:#86EFAC;font-weight:700;display:flex;align-items:center;gap:.3rem}
+.rc-tx{font-size:1.45rem;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:2rem;font-style:italic}
+.rc-who{display:flex;align-items:center;gap:1.2rem}
+.rc-av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.3rem;flex-shrink:0}
+.rc-nm{font-size:1.4rem;font-weight:700;color:#fff}
+.rc-rl{font-size:1.2rem;color:rgba(255,255,255,.45);margin-top:.2rem}
+.rev-cta{text-align:center;margin-top:5rem}
+.btn-o{display:inline-block;background:var(--o);color:#fff;padding:1.8rem 5rem;border-radius:14px;font-size:1.8rem;font-weight:800;transition:all .2s;letter-spacing:.01em;border:none;cursor:pointer}
+.btn-o:hover{opacity:.92;transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,87,34,.35)}
 
 /* FAQ */
-.faq-section{background:var(--bg);padding:6rem 2rem}
-.faq-list{max-width:700px;margin:4rem auto 0;display:flex;flex-direction:column;gap:1.2rem}
-.faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.faq-q{padding:1.8rem 2rem;font-size:1.5rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.faq-q::after{content:'+';font-size:2rem;color:var(--primary);font-weight:300}
-.faq-a{padding:0 2rem 1.6rem;font-size:1.4rem;color:var(--muted);line-height:1.7}
+.faq{padding:9rem 4rem;background:var(--wh)}
+.faq-list{max-width:720px;margin:4rem auto 0;display:flex;flex-direction:column;gap:1rem}
+.fq{border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;background:var(--cr)}
+.fq-q{padding:2rem 2.4rem;font-size:1.5rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--bk);user-select:none}
+.fq-ic{width:30px;height:30px;border-radius:50%;background:var(--gl);color:var(--g);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:300;flex-shrink:0;transition:transform .2s}
+.fq-a{padding:0 2.4rem 2rem;font-size:1.4rem;color:var(--mu);line-height:1.75;display:none}
 
-/* CTA BOTTOM */
-.cta-bottom{background:var(--primary);padding:6rem 2rem;text-align:center}
-.cta-bottom h2{font-size:3.6rem;font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:1.2rem}
-.cta-bottom p{font-size:1.6rem;color:rgba(255,255,255,.8);margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto}
-.btn-cta-white{display:inline-block;background:#fff;color:var(--primary);padding:1.6rem 4rem;border-radius:12px;font-size:1.8rem;font-weight:800;cursor:pointer;transition:all .15s}
-.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+/* BOTTOM CTA */
+.btm{padding:9rem 4rem;background:var(--g);text-align:center}
+.btm h2{font-size:4.2rem;font-weight:900;color:#fff;letter-spacing:-.04em;margin-bottom:1.2rem;line-height:1.1}
+.btm p{font-size:1.6rem;color:rgba(255,255,255,.75);margin-bottom:3.2rem;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-wh{display:inline-block;background:#fff;color:var(--g);padding:1.8rem 5rem;border-radius:14px;font-size:1.8rem;font-weight:800;transition:all .2s;letter-spacing:-.01em;border:none;cursor:pointer}
+.btn-wh:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.2)}
 
 /* FOOTER */
-footer{background:#1a1a1a;color:#888;padding:3rem 2rem;text-align:center;font-size:1.3rem}
-.footer-links{display:flex;gap:2rem;justify-content:center;margin-bottom:1.2rem;flex-wrap:wrap}
-.footer-links a{color:#888;transition:color .15s}
-.footer-links a:hover{color:#fff}
+footer{background:#080808;padding:4rem 4rem 3rem;display:flex;flex-direction:column;align-items:center;gap:1.8rem}
+.ft-logo{font-size:2.2rem;font-weight:900;color:#fff;letter-spacing:-.04em}
+.ft-logo em{font-style:normal;color:var(--o)}
+.ft-links{display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center}
+.ft-links a{font-size:1.3rem;color:#555;transition:color .15s}
+.ft-links a:hover{color:#fff}
+.ft-copy{font-size:1.2rem;color:#333;text-align:center;line-height:1.7}
 
-/* STICKY BUY */
-.sticky-buy{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--border);padding:1.2rem 2rem;display:none;align-items:center;justify-content:space-between;gap:1.6rem;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.1)}
-.sticky-price{font-size:2rem;font-weight:900}
-.sticky-price del{font-size:1.4rem;color:#999;font-weight:400;margin-right:.6rem}
-.sticky-btn{background:var(--primary);color:#fff;padding:1.2rem 3rem;border:none;border-radius:10px;font-size:1.6rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .15s}
-.sticky-btn:hover{background:var(--primary-light)}
+/* STICKY MOBILE BAR */
+.sk{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1.5px solid var(--bd);padding:1.2rem 2rem;display:none;align-items:center;justify-content:space-between;gap:1.2rem;z-index:200;box-shadow:0 -8px 32px rgba(0,0,0,.1)}
+.sk-info .sp{font-size:2rem;font-weight:900;letter-spacing:-.03em}
+.sk-info .sp del{font-size:1.3rem;color:#AAA;font-weight:400;margin-right:.3rem}
+.sk-info .sb{font-size:1.2rem;color:var(--mu)}
+.sk-btn{background:var(--g);color:#fff;padding:1.2rem 2.4rem;border-radius:10px;font-size:1.5rem;font-weight:800;flex-shrink:0;transition:background .15s}
+.sk-btn:hover{background:var(--gm)}
 
-/* MOBILE */
-@media(max-width:768px){
+/* RESPONSIVE */
+@media(max-width:900px){
   .hero{grid-template-columns:1fr}
-  .hero-media{min-height:320px}
-  .hero-img-placeholder{width:220px;height:220px;font-size:7rem}
-  .hero-content{padding:2.4rem 1.6rem}
-  .hero h1{font-size:2.8rem}
-  .pain-grid,.steps,.reviews-grid{grid-template-columns:1fr}
-  .ba-grid{grid-template-columns:1fr}
-  .header-trust{display:none}
-  .sticky-buy{display:flex}
-  .price-now{font-size:3rem}
+  .gal{min-height:320px}
+  .hc{padding:2.8rem 2rem}
+  .h1{font-size:3.4rem}
+  .pill{display:none}
+  .pain-grid,.rg,.feat-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:2.4rem}
+  .steps::before{display:none}
+  .pain,.how,.feat,.rev,.faq,.btm{padding:5.5rem 2rem}
+  .hd{padding:1.2rem 2rem}
+  .hd-trust{display:none}
+  .sk{display:flex}
+  .s-h2{font-size:2.8rem}
+  .trust{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="anbar">🚚 FREE Shipping on orders $35+ &nbsp;|&nbsp; <span>LIMITED OFFER: 50% OFF today only</span></div>
+<div class="anbar">
+  <div class="anbar-track">
+    <span>🔥 FREE Shipping on all orders</span>
+    <span><em>50% OFF — Today Only</em></span>
+    <span>★★★★★ 2,847 verified reviews</span>
+    <span>↩️ 30-Day Money Back Guarantee</span>
+    <span>📦 Ships within 24 hours</span>
+    <span>🔥 FREE Shipping on all orders</span>
+    <span><em>50% OFF — Today Only</em></span>
+    <span>★★★★★ 2,847 verified reviews</span>
+    <span>↩️ 30-Day Money Back Guarantee</span>
+    <span>📦 Ships within 24 hours</span>
+  </div>
+</div>
 
 <!-- HEADER -->
-<header class="header">
-  <div class="logo">Foot<span>Zen</span></div>
-  <div class="header-trust">
-    <div><span class="stars">★★★★★</span> <strong>4.9</strong> (2,847 reviews)</div>
-    <div class="header-badge">✓ 30-Day Money Back</div>
+<header class="hd">
+  <div class="logo">Foot<em>Zen</em>™</div>
+  <div class="hd-trust">
+    <div class="hd-stars">★★★★★ <span>(2,847 reviews)</span></div>
+    <div class="hd-badge">✓ 30-Day Money Back</div>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-media">
-    <div class="hero-img-wrap" style="background:#f5f3ef;padding:0;display:block;position:relative">
-      <!-- Main product image -->
-      <img id="main-img" src="img/real_3.jpg" alt="FootZen Acupressure Slippers" style="width:100%;height:100%;object-fit:contain;object-position:center;background:#f5f5f5;padding:2rem">
-      <div class="badge-viral">🔥 28M+ TikTok Views</div>
-      <!-- Thumbnail gallery -->
-      <div style="position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);display:flex;gap:.8rem">
-        <img src="img/real_3.jpg" onclick="selectThumb(this)" style="width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid var(--primary);box-shadow:0 2px 8px rgba(0,0,0,.2);background:#fff">
-        <img src="img/viral_0_0.jpg" onclick="selectThumb(this)" style="width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid rgba(255,255,255,.4);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-        <img src="img/real_10.jpg" onclick="selectThumb(this)" style="width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid rgba(255,255,255,.4);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-        <img src="img/real_0.jpg" onclick="selectThumb(this)" style="width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid rgba(255,255,255,.4);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-        <img src="img/info.jpg" onclick="selectThumb(this)" style="width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid rgba(255,255,255,.4);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-      </div>
+  <div class="gal">
+    <img id="main-img" src="img/real_3.jpg" alt="FootZen Acupressure Slippers" class="gal-main">
+    <div class="gal-badge">🔥 28M+ TikTok Views</div>
+    <div class="gal-thumbs">
+      <img src="img/real_3.jpg" class="thumb on" onclick="swImg(this)" alt="">
+      <img src="img/viral_0_0.jpg" class="thumb" onclick="swImg(this)" alt="">
+      <img src="img/real_10.jpg" class="thumb" onclick="swImg(this)" alt="">
+      <img src="img/real_0.jpg" class="thumb" onclick="swImg(this)" alt="">
+      <img src="img/info.jpg" class="thumb" onclick="swImg(this)" alt="">
+    </div>
+    <div class="pill">
+      <div class="pill-av">SK</div>
+      <div class="pill-tx">"Game changer after 12-hour shifts" <b>Sarah K. · Nurse ★★★★★</b></div>
     </div>
   </div>
 
-  <div class="hero-content">
+  <div class="hc">
     <div class="eyebrow">Acupressure Relief Slippers</div>
-    <h1>Your feet hurt.<br><em>These fix that.</em></h1>
-    <p class="hero-sub">Thousands of nurses, teachers and parents use FootZen slippers every evening to melt away foot pain — in just 20 minutes.</p>
+    <h1 class="h1">Your feet hurt.<br><em>These fix that.</em></h1>
+    <p class="sub">Thousands of nurses, teachers and parents use FootZen every evening to melt away foot pain — in just 20 minutes.</p>
 
     <div class="stars-row">
-      <div class="stars-big">★★★★★</div>
-      <div class="stars-text"><strong>4.9/5</strong> · 2,847 verified reviews</div>
+      <div class="st">★★★★★</div>
+      <div class="st-info"><strong>4.9/5</strong> · 2,847 verified reviews</div>
     </div>
 
-    <!-- QTY -->
-    <div class="size-block" style="margin-bottom:1.2rem">
-      <div class="size-label">Quantity:</div>
-      <div style="display:flex;gap:0;margin-top:.8rem;align-items:center;border:1.5px solid var(--border);border-radius:8px;width:fit-content;overflow:hidden">
-        <button onclick="changeQty(-1)" style="width:40px;height:40px;background:#f5f5f5;border:none;font-size:2rem;cursor:pointer;font-family:inherit;color:var(--text)">−</button>
-        <div id="qty" style="width:50px;text-align:center;font-size:1.6rem;font-weight:700">1</div>
-        <button onclick="changeQty(1)" style="width:40px;height:40px;background:#f5f5f5;border:none;font-size:2rem;cursor:pointer;font-family:inherit;color:var(--text)">+</button>
+    <!-- Quantity -->
+    <div class="fl">Quantity</div>
+    <div class="qty-wrap">
+      <div class="qty-ctrl">
+        <button class="qb" onclick="chQty(-1)">−</button>
+        <div class="qv" id="qty-val">1</div>
+        <button class="qb" onclick="chQty(1)">+</button>
+      </div>
+      <div class="qs" id="qty-save"></div>
+    </div>
+
+    <!-- Size -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem">
+      <div class="fl" style="margin:0">Size</div>
+      <button class="sc-btn" onclick="document.getElementById('sc').style.display=document.getElementById('sc').style.display==='block'?'none':'block'">Size chart ↓</button>
+    </div>
+    <div class="sz-grid">
+      <button class="sz-btn" onclick="selSz(this,'EU 36-37')">EU 36-37<small>US 5-6W / 4-5M</small></button>
+      <button class="sz-btn" onclick="selSz(this,'EU 38-39')">EU 38-39<small>US 7-8W / 6-7M</small></button>
+      <button class="sz-btn on" onclick="selSz(this,'EU 40-41')">EU 40-41<small>US 9-10W / 8-9M</small></button>
+      <button class="sz-btn" onclick="selSz(this,'EU 42-43')">EU 42-43<small>US 11W / 10-11M</small></button>
+      <button class="sz-btn" onclick="selSz(this,'EU 44-45')">EU 44-45<small>US 12-13M</small></button>
+    </div>
+    <div class="sz-chart" id="sc">
+      <table>
+        <thead><tr><th>EU</th><th>US Women</th><th>US Men</th><th>Foot length</th></tr></thead>
+        <tbody>
+          <tr><td>36–37</td><td>5–6</td><td>4–5</td><td>23–24 cm</td></tr>
+          <tr><td>38–39</td><td>7–8</td><td>6–7</td><td>24.5–25.5 cm</td></tr>
+          <tr><td>40–41</td><td>9–10</td><td>8–9</td><td>26–26.5 cm</td></tr>
+          <tr><td>42–43</td><td>11</td><td>10–11</td><td>27–27.5 cm</td></tr>
+          <tr><td>44–45</td><td>—</td><td>12–13</td><td>28.5–29 cm</td></tr>
+        </tbody>
+      </table>
+      <div style="padding:.8rem 1rem;font-size:1.2rem;color:var(--mu)">💡 Between sizes? Size up for more comfort.</div>
+    </div>
+
+    <!-- Price -->
+    <div class="pb">
+      <div>
+        <div style="font-size:1.2rem;color:var(--mu);margin-bottom:.3rem">Regular price: <span style="text-decoration:line-through">$59.99</span></div>
+        <div style="display:flex;align-items:baseline;gap:1rem">
+          <div class="pn" id="price-now">$29.99</div>
+          <div class="ps">SAVE 50%</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="pship">🚚 Free shipping</div>
+        <div style="font-size:1.2rem;color:var(--mu);margin-top:.3rem">5–7 business days</div>
+      </div>
+    </div>
+    <div class="pstock">⚠️ Only 23 pairs left at this price</div>
+
+    <!-- Timer -->
+    <div class="tmr">
+      <div class="tl">🔥 Offer ends in:</div>
+      <div class="tu">
+        <div class="tc" id="th">00</div>
+        <span class="td">:</span>
+        <div class="tc" id="tm">47</div>
+        <span class="td">:</span>
+        <div class="tc" id="ts">13</div>
       </div>
     </div>
 
-    <!-- SIZE -->
-    <div class="size-block">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem">
-        <div class="size-label" style="margin:0">Size:</div>
-        <button onclick="document.getElementById('size-chart').style.display=document.getElementById('size-chart').style.display==='none'?'block':'none'" style="background:none;border:none;color:var(--primary);font-size:1.3rem;cursor:pointer;font-family:inherit;text-decoration:underline">Size chart ↓</button>
-      </div>
-      <div class="size-opts">
-        <button class="size-opt" onclick="selectSize(this,'EU 36-37')"><span style="font-size:1.4rem;font-weight:700">EU 36-37</span><span style="display:block;font-size:1.1rem;color:var(--muted);font-weight:400">US 5-6W / 4-5M</span></button>
-        <button class="size-opt" onclick="selectSize(this,'EU 38-39')"><span style="font-size:1.4rem;font-weight:700">EU 38-39</span><span style="display:block;font-size:1.1rem;color:var(--muted);font-weight:400">US 7-8W / 6-7M</span></button>
-        <button class="size-opt active" onclick="selectSize(this,'EU 40-41')"><span style="font-size:1.4rem;font-weight:700">EU 40-41</span><span style="display:block;font-size:1.1rem;color:var(--muted);font-weight:400">US 9-10W / 8-9M</span></button>
-        <button class="size-opt" onclick="selectSize(this,'EU 42-43')"><span style="font-size:1.4rem;font-weight:700">EU 42-43</span><span style="display:block;font-size:1.1rem;color:var(--muted);font-weight:400">US 11W / 10-11M</span></button>
-        <button class="size-opt" onclick="selectSize(this,'EU 44-45')"><span style="font-size:1.4rem;font-weight:700">EU 44-45</span><span style="display:block;font-size:1.1rem;color:var(--muted);font-weight:400">US 12-13M</span></button>
-      </div>
-      <!-- Size Chart -->
-      <div id="size-chart" style="display:none;margin-top:1.2rem;background:var(--bg);border-radius:10px;overflow:hidden;border:1px solid var(--border)">
-        <table style="width:100%;border-collapse:collapse;font-size:1.3rem">
-          <thead><tr style="background:var(--primary);color:#fff">
-            <th style="padding:.8rem 1rem;text-align:left">EU</th>
-            <th style="padding:.8rem 1rem;text-align:center">US Women</th>
-            <th style="padding:.8rem 1rem;text-align:center">US Men</th>
-            <th style="padding:.8rem 1rem;text-align:center">Foot length</th>
-          </tr></thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--border)"><td style="padding:.8rem 1rem;font-weight:600">36–37</td><td style="text-align:center">5–6</td><td style="text-align:center">4–5</td><td style="text-align:center">23–24 cm</td></tr>
-            <tr style="border-bottom:1px solid var(--border);background:#f9f9f7"><td style="padding:.8rem 1rem;font-weight:600">38–39</td><td style="text-align:center">7–8</td><td style="text-align:center">6–7</td><td style="text-align:center">24.5–25.5 cm</td></tr>
-            <tr style="border-bottom:1px solid var(--border)"><td style="padding:.8rem 1rem;font-weight:600">40–41</td><td style="text-align:center">9–10</td><td style="text-align:center">8–9</td><td style="text-align:center">26–26.5 cm</td></tr>
-            <tr style="border-bottom:1px solid var(--border);background:#f9f9f7"><td style="padding:.8rem 1rem;font-weight:600">42–43</td><td style="text-align:center">11</td><td style="text-align:center">10–11</td><td style="text-align:center">27–27.5 cm</td></tr>
-            <tr><td style="padding:.8rem 1rem;font-weight:600">44–45</td><td style="text-align:center">—</td><td style="text-align:center">12–13</td><td style="text-align:center">28.5–29 cm</td></tr>
-          </tbody>
-        </table>
-        <div style="padding:.8rem 1rem;font-size:1.2rem;color:var(--muted)">💡 Between sizes? Size up for extra comfort.</div>
-      </div>
-    </div>
-
-    <!-- PRICE -->
-    <div class="price-block">
-      <div class="price-orig">Regular price: $59.99</div>
-      <div class="price-sale">
-        <div class="price-now">$29.99</div>
-        <div class="price-tag">SAVE 50%</div>
-      </div>
-      <div class="stock-warning" style="margin-top:1.2rem">⚠️ Only 23 pairs left at this price</div>
-    </div>
-
-    <!-- TIMER -->
-    <div class="timer-block">
-      <div class="timer-label">🔥 Sale ends in:</div>
-      <div class="timer-digits">
-        <div class="timer-unit" id="th">00</div>
-        <span class="timer-sep">:</span>
-        <div class="timer-unit" id="tm">47</div>
-        <span class="timer-sep">:</span>
-        <div class="timer-unit" id="ts">13</div>
-      </div>
-    </div>
-
-    <button class="btn-buy" onclick="handleBuy()">
-      🛒 Buy Now — Free Shipping
+    <button class="btn-buy" onclick="doBuy()">
+      Buy Now — Free Shipping
       <span>Apple Pay · Google Pay · Visa · Mastercard</span>
     </button>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.4rem">
-      <div style="display:flex;align-items:center;gap:.8rem;background:#f9faf8;border:1px solid #e0ede5;border-radius:10px;padding:1rem 1.2rem;font-size:1.3rem;color:#444">
-        <span style="font-size:1.8rem">🔒</span><div><div style="font-weight:700;color:#1a1a1a">Secure checkout</div><div style="font-size:1.1rem;color:#888">256-bit SSL</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:.8rem;background:#f9faf8;border:1px solid #e0ede5;border-radius:10px;padding:1rem 1.2rem;font-size:1.3rem;color:#444">
-        <span style="font-size:1.8rem">↩️</span><div><div style="font-weight:700;color:#1a1a1a">Free returns</div><div style="font-size:1.1rem;color:#888">30-day guarantee</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:.8rem;background:#f9faf8;border:1px solid #e0ede5;border-radius:10px;padding:1rem 1.2rem;font-size:1.3rem;color:#444">
-        <span style="font-size:1.8rem">🚚</span><div><div style="font-weight:700;color:#1a1a1a">Free shipping</div><div style="font-size:1.1rem;color:#888">Delivered 5–7 days</div></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:.8rem;background:#f9faf8;border:1px solid #e0ede5;border-radius:10px;padding:1rem 1.2rem;font-size:1.3rem;color:#444">
-        <span style="font-size:1.8rem">⭐</span><div><div style="font-weight:700;color:#1a1a1a">2,847 reviews</div><div style="font-size:1.1rem;color:#888">Verified buyers</div></div>
-      </div>
+    <div class="trust">
+      <div class="ti"><span class="ti-ic">🔒</span> SSL Secure</div>
+      <div class="ti"><span class="ti-ic">↩️</span> 30-Day Returns</div>
+      <div class="ti"><span class="ti-ic">🚚</span> Ships in 24h</div>
+      <div class="ti"><span class="ti-ic">⭐</span> 2,847 Reviews</div>
     </div>
   </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-inner">
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Sarah K.</span> "Game changer after 12-hour shifts"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Michelle L.</span> "Plantar fasciitis gone in 2 weeks"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">James T.</span> "TikTok was right. Whole family ordered"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Anna P.</span> "Standing all day — these are a lifesaver"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">David R.</span> "Better than $80 massages. Way better."</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Emma W.</span> "Finally something that actually works"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Chris M.</span> "Bought for my mom. She calls it magic."</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Sarah K.</span> "Game changer after 12-hour shifts"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Michelle L.</span> "Plantar fasciitis gone in 2 weeks"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">James T.</span> "TikTok was right. Whole family ordered"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Anna P.</span> "Standing all day — these are a lifesaver"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">David R.</span> "Better than $80 massages. Way better."</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Emma W.</span> "Finally something that actually works"</div>
+    <div class="mq-item"><span class="mq-st">★★★★★</span> <span class="mq-nm">Chris M.</span> "Bought for my mom. She calls it magic."</div>
+  </div>
+</div>
 
 <!-- PAIN POINTS -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">Sound familiar?</div>
-    <h2 class="section-title">Your feet are telling you something</h2>
-    <p class="section-sub">Millions of people push through foot pain every day. It doesn't have to be that way.</p>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-icon">😫</div>
-        <h3>Aching after long shifts</h3>
-        <p>Hours on your feet as a nurse, teacher or server leave you exhausted by evening.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">🦵</div>
-        <h3>Plantar fasciitis pain</h3>
-        <p>That stabbing heel pain every morning? Acupressure points help release that tension fast.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">💸</div>
-        <h3>Tired of expensive massages</h3>
-        <p>$80 foot massage feels amazing for 30 minutes. FootZen works every single night.</p>
-      </div>
+<section class="pain">
+  <div class="s-eye">Sound familiar?</div>
+  <h2 class="s-h2">Your feet are telling you something</h2>
+  <p class="s-sub">Millions of people push through foot pain every single day. You don't have to.</p>
+  <div class="pain-grid">
+    <div class="pc">
+      <div class="pc-ic">😫</div>
+      <h3>Dead tired after long shifts</h3>
+      <p>12 hours on your feet as a nurse, teacher or server leaves your feet absolutely destroyed by evening.</p>
     </div>
-  </div>
-</section>
-
-<!-- BEFORE / AFTER -->
-<section class="ba-section">
-  <div class="container">
-    <div class="ba-grid">
-      <div class="ba-visual">
-        <div class="ba-box ba-before" style="background:none;overflow:hidden">
-          <img src="img/real_0.jpg" style="width:100%;height:100%;object-fit:cover">
-          <div class="ba-label">BEFORE</div>
-        </div>
-        <div class="ba-box ba-after" style="background:none;overflow:hidden">
-          <img src="img/real_10.jpg" style="width:100%;height:100%;object-fit:cover">
-          <div class="ba-label">AFTER 20 MIN</div>
-        </div>
-      </div>
-      <div class="ba-content">
-        <h2>Feel the difference in your first session</h2>
-        <div class="ba-list">
-          <div class="ba-item">430 acupressure points stimulate blood flow instantly</div>
-          <div class="ba-item">Tension releases in foot arches and heels within minutes</div>
-          <div class="ba-item">Reflexology zones connected to back, knee and hip pain</div>
-          <div class="ba-item">Just put them on — no technique needed, no appointments</div>
-          <div class="ba-item">Medical-grade TPE material, washable and odor-resistant</div>
-        </div>
-      </div>
+    <div class="pc">
+      <div class="pc-ic">🦵</div>
+      <h3>That stabbing heel pain</h3>
+      <p>Plantar fasciitis makes every morning miserable. Acupressure targets the exact pressure points that release it fast.</p>
+    </div>
+    <div class="pc">
+      <div class="pc-ic">💸</div>
+      <h3>Expensive massages that don't last</h3>
+      <p>$80 massage feels great for 30 minutes. FootZen works every single night for years — for $29.99.</p>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-section">
-  <div class="container">
-    <div class="section-label">Simple as that</div>
-    <h2 class="section-title">3 steps to pain-free evenings</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Put them on</h3>
-        <p>Slip into your FootZen slippers after work or whenever your feet need relief. No preparation needed.</p>
+<section class="how">
+  <div class="s-eye">Simple as that</div>
+  <h2 class="s-h2">3 steps to pain-free evenings</h2>
+  <div class="steps">
+    <div class="st-card">
+      <div class="st-num">1</div>
+      <h3>Slip them on</h3>
+      <p>After work, after the gym, anytime your feet ache. No preparation, no technique — just put them on.</p>
+    </div>
+    <div class="st-card">
+      <div class="st-num">2</div>
+      <h3>Walk 20 minutes</h3>
+      <p>430 acupressure nodes work passively as you move. Watch TV, cook dinner — relief happens automatically.</p>
+    </div>
+    <div class="st-card">
+      <div class="st-num">3</div>
+      <h3>Feel the difference</h3>
+      <p>Better circulation, less tension, deeper sleep. Most customers feel it within their very first session.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="feat">
+  <div class="s-eye">Why FootZen works</div>
+  <h2 class="s-h2">Built for real, lasting relief</h2>
+  <div class="feat-grid">
+    <div class="fi">
+      <div class="fi-ic">🔢</div>
+      <div>
+        <h4>430 acupressure nodes</h4>
+        <p>Precisely placed to stimulate reflexology zones connected to foot, back, and knee pain.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Walk around for 20 min</h3>
-        <p>The 430 acupressure nodes do the work. Watch TV, do dishes, relax — it works passively.</p>
+    </div>
+    <div class="fi">
+      <div class="fi-ic">🧬</div>
+      <div>
+        <h4>Medical-grade TPE material</h4>
+        <p>BPA-free, non-toxic, odor-resistant. Washable. Firm enough to work, comfortable enough for daily use.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Feel the relief</h3>
-        <p>Improved circulation, less tension, better sleep. Most customers feel it in their very first session.</p>
+    </div>
+    <div class="fi">
+      <div class="fi-ic">⏱️</div>
+      <div>
+        <h4>Results in 20 minutes</h4>
+        <p>Not weeks. Most customers report noticeable tension release within their first session.</p>
+      </div>
+    </div>
+    <div class="fi">
+      <div class="fi-ic">📐</div>
+      <div>
+        <h4>5 sizes — EU 36 to 45</h4>
+        <p>Fits everyone. Between sizes? Go one up. Full size chart available in the product section.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section">
-  <div class="container">
-    <div class="section-label">Real customers, real results</div>
-    <h2 class="section-title">2,847 people can't be wrong</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I'm a nurse and my feet were destroyed after 12-hour shifts. After 2 weeks with FootZen I actually look forward to coming home. Game changer."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">SK</div>
-          <div>
-            <div class="reviewer-name">Sarah K.</div>
-            <div class="reviewer-meta">Registered Nurse · Tampa, FL</div>
-            <div class="verified">✓ Verified purchase</div>
-          </div>
-        </div>
+<section class="rev">
+  <div class="s-eye">Customer reviews</div>
+  <h2 class="s-h2">2,847 people can't be wrong</h2>
+  <p class="s-sub">Real customers, verified purchases. We don't hide negative reviews — because there almost aren't any.</p>
+  <div class="rg">
+    <div class="rc">
+      <div class="rc-top">
+        <span class="rc-st">★★★★★</span>
+        <span class="rc-vf">✓ Verified</span>
       </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Plantar fasciitis for 3 years. Tried everything. These slippers are the only thing that actually helps with the morning heel pain. Bought a second pair for my husband."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">ML</div>
-          <div>
-            <div class="reviewer-name">Michelle L.</div>
-            <div class="reviewer-meta">Teacher · Austin, TX</div>
-            <div class="verified">✓ Verified purchase</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Skeptical at first but TikTok was right this time. Wore them for 30 mins while cooking dinner. Feet felt incredible. My whole family has a pair now."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">JT</div>
-          <div>
-            <div class="reviewer-name">James T.</div>
-            <div class="reviewer-meta">Restaurant Manager · Chicago, IL</div>
-            <div class="verified">✓ Verified purchase</div>
-          </div>
+      <p class="rc-tx">"I'm a nurse and my feet were destroyed after every 12-hour shift. Two weeks with FootZen and I actually look forward to coming home. Total game changer."</p>
+      <div class="rc-who">
+        <div class="rc-av" style="background:#2D6A4F">SK</div>
+        <div>
+          <div class="rc-nm">Sarah K.</div>
+          <div class="rc-rl">Registered Nurse · Tampa, FL</div>
         </div>
       </div>
     </div>
+    <div class="rc">
+      <div class="rc-top">
+        <span class="rc-st">★★★★★</span>
+        <span class="rc-vf">✓ Verified</span>
+      </div>
+      <p class="rc-tx">"3 years of plantar fasciitis. Tried everything — orthotics, ice, stretching. These slippers are literally the only thing that helps with morning heel pain."</p>
+      <div class="rc-who">
+        <div class="rc-av" style="background:#B5451B">ML</div>
+        <div>
+          <div class="rc-nm">Michelle L.</div>
+          <div class="rc-rl">Teacher · Austin, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="rc">
+      <div class="rc-top">
+        <span class="rc-st">★★★★★</span>
+        <span class="rc-vf">✓ Verified</span>
+      </div>
+      <p class="rc-tx">"Was skeptical — TikTok has lied to me before. Wore these for 30 mins while cooking dinner. Feet felt incredible after. My whole family has a pair now."</p>
+      <div class="rc-who">
+        <div class="rc-av" style="background:#1D3557">JT</div>
+        <div>
+          <div class="rc-nm">James T.</div>
+          <div class="rc-rl">Restaurant Manager · Chicago, IL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rev-cta">
+    <button class="btn-o" onclick="doBuy()">Get Yours — 50% Off Today</button>
+    <div style="font-size:1.3rem;color:rgba(255,255,255,.45);margin-top:1.4rem">Free shipping · 30-day guarantee · Ships in 24h</div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-section">
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-title">Everything you need to know</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">Will these work for my shoe size?</div>
-        <div class="faq-a">FootZen comes in 4 sizes: S (US 5-6), M (US 7-8), L (US 9-10), XL (US 11-12). If you're between sizes, size up for more comfort.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How long until I feel results?</div>
-        <div class="faq-a">Most customers feel noticeable relief within the first 20-minute session. For chronic issues like plantar fasciitis, consistent use over 1-2 weeks brings the best results.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What are they made of?</div>
-        <div class="faq-a">Medical-grade TPE (thermoplastic elastomer) — BPA-free, non-toxic, washable and odor-resistant. The 430 acupressure nodes are firm enough to stimulate but won't hurt.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How long does shipping take?</div>
-        <div class="faq-a">Orders ship within 24 hours. US delivery: 5-7 business days. Canada & EU: 7-12 business days. Free shipping on all orders over $35.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What if they don't work for me?</div>
-        <div class="faq-a">We offer a full 30-day money-back guarantee. If you're not satisfied for any reason, email us and we'll refund you completely — no questions asked, no return required.</div>
-      </div>
+<section class="faq">
+  <div class="s-eye">Questions</div>
+  <h2 class="s-h2">Everything you need to know</h2>
+  <div class="faq-list">
+    <div class="fq">
+      <div class="fq-q" onclick="togFaq(this)">Will these work for my shoe size? <span class="fq-ic">+</span></div>
+      <div class="fq-a">FootZen comes in 5 EU sizes: 36-37, 38-39, 40-41, 42-43, 44-45. If you're between sizes, always size up for more comfort. Full size chart is available in the product section.</div>
+    </div>
+    <div class="fq">
+      <div class="fq-q" onclick="togFaq(this)">How long until I feel results? <span class="fq-ic">+</span></div>
+      <div class="fq-a">Most customers feel noticeable relief within the first 20-minute session. For chronic conditions like plantar fasciitis, consistent use over 1-2 weeks brings the best long-term results.</div>
+    </div>
+    <div class="fq">
+      <div class="fq-q" onclick="togFaq(this)">What are they made of? <span class="fq-ic">+</span></div>
+      <div class="fq-a">Medical-grade TPE — BPA-free, non-toxic, washable and odor-resistant. The 430 nodes are firm enough to stimulate blood flow and release tension, but not uncomfortable to stand on.</div>
+    </div>
+    <div class="fq">
+      <div class="fq-q" onclick="togFaq(this)">How long does shipping take? <span class="fq-ic">+</span></div>
+      <div class="fq-a">Orders ship within 24 hours. US delivery: 5-7 business days. Canada & EU: 7-12 business days. Tracking number sent by email.</div>
+    </div>
+    <div class="fq">
+      <div class="fq-q" onclick="togFaq(this)">What if they don't work for me? <span class="fq-ic">+</span></div>
+      <div class="fq-a">30-day money-back guarantee. Not happy for any reason — email us and get a full refund. No return required, no questions asked.</div>
     </div>
   </div>
 </section>
 
-<!-- CTA BOTTOM -->
-<section class="cta-bottom">
-  <h2>Your feet deserve better</h2>
+<!-- BOTTOM CTA -->
+<section class="btm">
+  <h2>Your feet deserve better.</h2>
   <p>Join 2,847+ people who stopped living with foot pain. Try FootZen risk-free for 30 days.</p>
-  <button class="btn-cta-white" onclick="handleBuy()">Get 50% Off Now — $29.99</button>
+  <button class="btn-wh" onclick="doBuy()">Get 50% Off Now — $29.99</button>
+  <div style="margin-top:1.6rem;font-size:1.3rem;color:rgba(255,255,255,.6)">Free shipping · 30-day guarantee · In stock now</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-links">
+  <div class="ft-logo">Foot<em>Zen</em>™</div>
+  <div class="ft-links">
     <a href="#">Privacy Policy</a>
     <a href="#">Terms of Service</a>
     <a href="#">Shipping Policy</a>
     <a href="#">Contact Us</a>
     <a href="#">Refund Policy</a>
   </div>
-  <div>© 2025 FootZen. All rights reserved.</div>
-  <div style="margin-top:.8rem;font-size:1.1rem">This site is protected by SSL encryption. Your information is safe.</div>
+  <div class="ft-copy">© 2025 FootZen™. All rights reserved.<br>This site is protected by SSL encryption. Your information is safe.</div>
 </footer>
 
-<!-- CHECKOUT DRAWER -->
-<div id="checkout-overlay" onclick="closeCheckout()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;backdrop-filter:blur(4px)"></div>
-<div id="checkout-drawer" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;z-index:301;border-radius:24px 24px 0 0;padding:0;max-height:90vh;overflow-y:auto;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1)">
-  <div style="padding:1.6rem 2rem 0">
-    <div style="width:40px;height:4px;background:#e5e5e5;border-radius:2px;margin:0 auto 1.6rem"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
-      <div style="font-size:1.8rem;font-weight:800">Order Summary</div>
-      <button onclick="closeCheckout()" style="background:#f5f5f5;border:none;width:36px;height:36px;border-radius:50%;font-size:1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
-    </div>
+<!-- STICKY MOBILE -->
+<div class="sk" id="sk">
+  <div class="sk-info">
+    <div class="sp"><del>$59.99</del> $29.99</div>
+    <div class="sb">Free shipping · 23 left</div>
   </div>
-
-  <!-- Product row -->
-  <div style="padding:0 2rem 2rem;border-bottom:1px solid #f0f0f0">
-    <div style="display:flex;gap:1.6rem;align-items:center">
-      <img src="img/real_3.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:12px;border:1px solid #f0f0f0">
-      <div style="flex:1">
-        <div style="font-size:1.5rem;font-weight:700;margin-bottom:.4rem">FootZen Acupressure Slippers</div>
-        <div id="co-details" style="font-size:1.3rem;color:#888;margin-bottom:.6rem">Size: EU 40-41 · Qty: 1</div>
-        <div style="display:flex;align-items:center;gap:1rem">
-          <span style="font-size:1.8rem;font-weight:900">$29.99</span>
-          <span style="font-size:1.3rem;color:#bbb;text-decoration:line-through">$59.99</span>
-          <span style="background:#ff6b35;color:#fff;font-size:1.1rem;font-weight:700;padding:.2rem .8rem;border-radius:6px">-50%</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Price breakdown -->
-  <div style="padding:1.6rem 2rem;border-bottom:1px solid #f0f0f0">
-    <div style="display:flex;justify-content:space-between;font-size:1.4rem;color:#666;margin-bottom:.8rem">
-      <span>Subtotal</span><span id="co-subtotal">$29.99</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:1.4rem;color:#1a6b3c;margin-bottom:.8rem">
-      <span>🚚 Shipping</span><span style="font-weight:600">FREE</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:1.4rem;color:#666;margin-bottom:1.2rem">
-      <span>Estimated delivery</span><span>5–7 business days</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:1.7rem;font-weight:800;border-top:1px solid #f0f0f0;padding-top:1.2rem">
-      <span>Total</span><span id="co-total">$29.99</span>
-    </div>
-  </div>
-
-  <!-- Guarantees -->
-  <div style="padding:1.4rem 2rem;border-bottom:1px solid #f0f0f0;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:.6rem;font-size:1.25rem;color:#555"><span>🔒</span> Secure payment</div>
-    <div style="display:flex;align-items:center;gap:.6rem;font-size:1.25rem;color:#555"><span>↩️</span> 30-day returns</div>
-    <div style="display:flex;align-items:center;gap:.6rem;font-size:1.25rem;color:#555"><span>⭐</span> 2,847 reviews</div>
-  </div>
-
-  <!-- Pay buttons -->
-  <div style="padding:2rem">
-    <button onclick="proceedToPayment('stripe')" style="width:100%;background:#1a6b3c;color:#fff;border:none;padding:1.7rem;border-radius:14px;font-size:1.7rem;font-weight:800;cursor:pointer;margin-bottom:1rem;transition:opacity .15s">
-      Pay with Card — $<span id="co-btn-total">29.99</span>
-    </button>
-    <button onclick="proceedToPayment('applepay')" style="width:100%;background:#000;color:#fff;border:none;padding:1.7rem;border-radius:14px;font-size:1.7rem;font-weight:700;cursor:pointer;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.8rem">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-       Apple Pay
-    </button>
-    <div style="text-align:center;font-size:1.2rem;color:#bbb;margin-top:.4rem">256-bit SSL encrypted · Your data is safe</div>
-  </div>
-</div>
-
-<!-- STICKY BUY (mobile) -->
-<div class="sticky-buy">
-  <div class="sticky-price"><del>$59.99</del> $29.99</div>
-  <button class="sticky-btn" onclick="handleBuy()">Buy Now — Free Ship 🔒</button>
+  <button class="sk-btn" onclick="doBuy()">Buy Now 🔒</button>
 </div>
 
 <script>
 // Timer
-function startTimer(duration) {
-  let t = duration;
-  function update() {
-    const h = Math.floor(t / 3600);
-    const m = Math.floor((t % 3600) / 60);
-    const s = t % 60;
-    document.getElementById('th').textContent = String(h).padStart(2,'0');
-    document.getElementById('tm').textContent = String(m).padStart(2,'0');
-    document.getElementById('ts').textContent = String(s).padStart(2,'0');
-    if (--t < 0) t = duration;
+(function(){
+  let t=2833;
+  const pad=n=>String(n).padStart(2,'0');
+  function tick(){
+    document.getElementById('th').textContent=pad(Math.floor(t/3600));
+    document.getElementById('tm').textContent=pad(Math.floor((t%3600)/60));
+    document.getElementById('ts').textContent=pad(t%60);
+    if(--t<0)t=2833;
   }
-  update();
-  setInterval(update, 1000);
-}
-startTimer(2833); // ~47 min
+  tick();setInterval(tick,1000);
+})();
 
-// Size selection
-function selectSize(btn, size) {
-  document.querySelectorAll('.size-opt').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  window._selectedSize = size;
-}
-
-// Quantity
-let qty = 1;
-function changeQty(d) {
-  qty = Math.max(1, Math.min(10, qty + d));
-  document.getElementById('qty').textContent = qty;
+// Qty
+let qty=1;
+const savMsg=['','','Buy 2 — save $2 extra','Buy 3 — save $5',''];
+function chQty(d){
+  qty=Math.max(1,Math.min(10,qty+d));
+  document.getElementById('qty-val').textContent=qty;
+  document.getElementById('price-now').textContent='$'+(29.99*qty).toFixed(2);
+  document.getElementById('qty-save').textContent=savMsg[qty]||'';
 }
 
-// Thumbnail select
-function selectThumb(el) {
-  document.getElementById('main-img').src = el.src;
-  document.querySelectorAll('.hero-img-wrap img[onclick]').forEach(t => t.style.border = '3px solid rgba(255,255,255,.4)');
-  el.style.border = '3px solid #fff';
+// Size
+let selSzVal='EU 40-41';
+function selSz(btn,sz){
+  document.querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  selSzVal=sz;
 }
 
-function handleBuy() {
-  const size = window._selectedSize || 'EU 40-41';
-  const q = qty || 1;
-  location.href = `/checkout.html?size=${encodeURIComponent(size)}&qty=${q}`;
+// Gallery
+function swImg(el){
+  document.getElementById('main-img').src=el.src;
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
 }
 
-// Sticky bar on scroll
-window.addEventListener('scroll', () => {
-  const sticky = document.querySelector('.sticky-buy');
-  if (window.innerWidth <= 768) {
-    sticky.style.display = window.scrollY > 400 ? 'flex' : 'none';
-  }
+// Buy
+function doBuy(){
+  location.href=`/checkout.html?size=${encodeURIComponent(selSzVal)}&qty=${qty}`;
+}
+
+// Sticky
+window.addEventListener('scroll',()=>{
+  if(window.innerWidth<=900)
+    document.getElementById('sk').style.display=window.scrollY>500?'flex':'none';
 });
+
+// FAQ
+function togFaq(el){
+  const a=el.nextElementSibling;
+  const ic=el.querySelector('.fq-ic');
+  const open=a.style.display==='block';
+  a.style.display=open?'none':'block';
+  ic.textContent=open?'+':'−';
+}
 </script>
 </body>
 </html>
