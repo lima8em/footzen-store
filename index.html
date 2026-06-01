@@ -615,8 +615,26 @@ function swImg(el){
 }
 
 // Buy
-function doBuy(){
-  location.href=`/checkout.html?size=${encodeURIComponent(selSzVal)}&qty=${qty}`;
+async function doBuy(){
+  const btn = document.querySelector('.btn-buy');
+  const skBtn = document.querySelector('.sk-btn');
+  const orig = btn ? btn.innerHTML : '';
+  if(btn){ btn.innerHTML='Processing…'; btn.style.opacity='.7'; btn.disabled=true; }
+  if(skBtn){ skBtn.textContent='…'; skBtn.disabled=true; }
+  try {
+    const res = await fetch('/api/checkout-session', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ size: selSzVal, qty }),
+    });
+    const data = await res.json();
+    if(data.url) { location.href = data.url; }
+    else throw new Error(data.error || 'Error');
+  } catch(e) {
+    alert('Something went wrong. Please try again.');
+    if(btn){ btn.innerHTML=orig; btn.style.opacity='1'; btn.disabled=false; }
+    if(skBtn){ skBtn.textContent='Buy Now 🔒'; skBtn.disabled=false; }
+  }
 }
 
 // Sticky
