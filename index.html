@@ -587,14 +587,10 @@ function selectThumb(el) {
   el.style.border = '3px solid #fff';
 }
 
-// Stripe Payment Link — replace with your link
-const STRIPE_LINK = 'https://buy.stripe.com/YOUR_LINK';
-
 function handleBuy() {
   const size = window._selectedSize || 'EU 40-41';
   const q = qty || 1;
-  // Redirect to Stripe with prefilled quantity
-  location.href = `${STRIPE_LINK}?quantity=${q}&prefilled_promo_code=&client_reference_id=${encodeURIComponent(size)}`;
+  location.href = `/checkout.html?size=${encodeURIComponent(size)}&qty=${q}`;
 }
 
 // Sticky bar on scroll

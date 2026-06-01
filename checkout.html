@@ -441,7 +441,7 @@ function selectPay(tab, method) {
 }
 
 // Stripe
-const stripe = Stripe('pk_test_REPLACE_WITH_YOUR_KEY');
+const stripe = Stripe('pk_test_51TWFbA2Q9YmIjaYTdF7mGg3V2B0Ph3bvRNLp56S1Vsnbt65xIirURUmKPyAAFw9uB19sMnebttDqo5VdyCFYVeUS00VfFh7iSy');
 const elements = stripe.elements({fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'}]});
 const elStyle = {
   base:{fontSize:'15px',color:'#1a1a1a',fontFamily:'Inter,sans-serif','::placeholder':{color:'#9ca3af'}},
@@ -495,22 +495,56 @@ async function submitPayment() {
   const spinner = document.getElementById('spinner');
   const label = document.getElementById('pay-label');
   const errDiv = document.getElementById('pay-error');
+
   btn.disabled = true;
   spinner.style.display = 'block';
   label.style.opacity = '0';
   errDiv.style.display = 'none';
 
-  // TODO: Create PaymentIntent on backend → confirm here
-  // const {error} = await stripe.confirmCardPayment(clientSecret, {payment_method:{card:cardNumber,billing_details:{name:document.getElementById('card-name').value}}});
-  // if (error) { show error } else { location.href = '/success' }
+  try {
+    const express = document.querySelector('[name="shipping"]:checked')?.value === 'express';
+    const extra = express ? 9.99 : 0;
+    const total = base + extra;
+    const amountCents = Math.round(total * 100);
 
-  setTimeout(() => {
+    const res = await fetch('/api/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: amountCents, currency: 'usd', size, qty }),
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.clientSecret) throw new Error(data.error || 'Server error');
+
+    const { error } = await stripe.confirmCardPayment(data.clientSecret, {
+      payment_method: {
+        card: cardNumber,
+        billing_details: {
+          name: document.getElementById('card-name').value,
+          email: document.getElementById('email').value,
+          address: {
+            line1: document.getElementById('address').value,
+            line2: document.getElementById('apt').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            postal_code: document.getElementById('zip').value,
+            country: document.getElementById('country').value,
+          },
+        },
+      },
+    });
+
+    if (error) throw new Error(error.message);
+
+    location.href = `/success.html?total=${total.toFixed(2)}&size=${encodeURIComponent(size)}&qty=${qty}`;
+
+  } catch (err) {
+    errDiv.textContent = '⚠️ ' + err.message;
+    errDiv.style.display = 'block';
     btn.disabled = false;
     spinner.style.display = 'none';
     label.style.opacity = '1';
-    errDiv.style.display = 'block';
-    errDiv.textContent = '⚠️ Connect your Stripe account to process payments.';
-  }, 1500);
+  }
 }
 
 // Mobile summary toggle

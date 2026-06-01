@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Order Confirmed — FootZen™</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:62.5%}
+body{font-family:'Inter',sans-serif;background:#f9f9f7;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+.card{background:#fff;border-radius:20px;box-shadow:0 4px 32px rgba(0,0,0,.08);padding:4rem 3.2rem;max-width:520px;width:100%;text-align:center}
+.check-circle{width:80px;height:80px;background:#f0faf4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2.4rem;font-size:3.6rem}
+h1{font-size:2.8rem;font-weight:900;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.8rem}
+.subtitle{font-size:1.5rem;color:#666;margin-bottom:3rem;line-height:1.6}
+.order-box{background:#f9f9f7;border:1px solid #e5e5e5;border-radius:12px;padding:2rem;margin-bottom:2.4rem;text-align:left}
+.order-row{display:flex;justify-content:space-between;font-size:1.4rem;padding:.6rem 0;border-bottom:1px solid #f0f0f0}
+.order-row:last-child{border-bottom:none;font-weight:700;font-size:1.5rem;padding-top:1rem;margin-top:.4rem}
+.order-row span:first-child{color:#666}
+.steps{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2.8rem;text-align:left}
+.step-row{display:flex;align-items:flex-start;gap:1.2rem;font-size:1.4rem}
+.step-icon{width:32px;height:32px;border-radius:50%;background:#f0faf4;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;margin-top:-.1rem}
+.step-text strong{display:block;font-size:1.4rem;font-weight:700;margin-bottom:.2rem}
+.step-text span{color:#888;font-size:1.3rem}
+.btn-home{display:inline-block;background:#1a6b3c;color:#fff;padding:1.4rem 3.2rem;border-radius:12px;font-size:1.6rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .15s;border:none;width:100%;text-align:center}
+.btn-home:hover{background:#22893f;transform:translateY(-1px)}
+.logo{font-size:1.8rem;font-weight:900;color:#1a6b3c;margin-bottom:2.8rem;display:block}
+.logo span{color:#ff6b35}
+</style>
+</head>
+<body>
+<div class="card">
+  <a href="/" class="logo">Foot<span>Zen</span>™</a>
+
+  <div class="check-circle">✅</div>
+
+  <h1>Order confirmed!</h1>
+  <p class="subtitle">Thank you for your purchase. You'll receive a confirmation email shortly with your tracking details.</p>
+
+  <div class="order-box">
+    <div class="order-row"><span>Product</span><span>FootZen™ Slippers</span></div>
+    <div class="order-row"><span>Size</span><span id="o-size">—</span></div>
+    <div class="order-row"><span>Qty</span><span id="o-qty">—</span></div>
+    <div class="order-row"><span>Shipping</span><span style="color:#1a6b3c;font-weight:600">FREE</span></div>
+    <div class="order-row"><span>Total paid</span><span id="o-total">—</span></div>
+  </div>
+
+  <div class="steps">
+    <div class="step-row">
+      <div class="step-icon">📧</div>
+      <div class="step-text">
+        <strong>Confirmation email</strong>
+        <span>Sent to your email within a few minutes</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-icon">📦</div>
+      <div class="step-text">
+        <strong>Order processing</strong>
+        <span>Ships within 24 hours</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-icon">🚚</div>
+      <div class="step-text">
+        <strong>Delivery</strong>
+        <span>Standard: 5–7 business days · Express: 2–3 days</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="/" class="btn-home">Continue Shopping</a>
+</div>
+
+<script>
+const p = new URLSearchParams(location.search);
+const total = p.get('total');
+const size  = p.get('size');
+const qty   = p.get('qty');
+
+if (size)  document.getElementById('o-size').textContent  = size;
+if (qty)   document.getElementById('o-qty').textContent   = qty;
+if (total) document.getElementById('o-total').textContent = '$' + total;
+</script>
+</body>
+</html>
